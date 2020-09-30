@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import lights from './lights.png';
+import lights from './assets/lights.png';
 
 const ContentDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: middle;
+    align: center;
     padding: 140px;
 `
 
@@ -27,7 +28,7 @@ export default function About() {
         <div>
             <ContentDiv>
                 <Lights src={lights}></Lights>
-                <Description>kajsdjkfhakjshfkjshfkjahsdkjhfkjsahdfksd</Description>
+                <Description>Hello! I am a student at UC Berkeley.</Description>
             </ContentDiv>
         </div>
     );

@@ -25,8 +25,18 @@ export default function PanelRight() {
             </NavPanelDiv>
             
             <Scrollable>
-                <About></About>
-                <Experiences></Experiences>
+                <div id='about'>
+                    <About></About>
+                </div>
+                <div id='experiences'>
+                    <Experiences></Experiences>
+                </div>
+                <div id='projects'>
+                    <Projects></Projects>
+                </div>
+                <div id='contact'>
+                    <Contact></Contact>
+                </div>
             </Scrollable>
         </div>
     );

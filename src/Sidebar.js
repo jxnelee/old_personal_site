@@ -1,24 +1,27 @@
 import React from 'react';
 import styled from 'styled-components'
-import dots from './dots.png';
+import dots from './assets/dots.png';
 
 const Wrapper = styled.div`
     padding: 50px;
     display: flex;
     flex-direction: column;
     justify-content: middle;
-    word-wrap: break-word;
     align-content: center;
+    word-wrap: break-word;
 `
 const Dots = styled.img`
     width: 100%;
     height: 100%;
 `
-const NameField = styled.p`
+const NameField = styled.button`
     font-size: 96px;
     text-align: center;
     line-height: 112px;
     weight: 700;
+    border:none;
+    background-color:transparent;
+    outline:none;
 `
 const InfoField = styled.p`
     font-size: 24px;
@@ -30,7 +33,7 @@ const InfoField = styled.p`
 export default function Sidebar() {
     return(
         <Wrapper>
-            <NameField>jane lee</NameField>
+            <a href='#about'><NameField>jane lee</NameField></a>
             <Dots src={dots}/>
             <InfoField>akjsdhfjkshdjfksaksjhfkdshfsdfksdfhfakjdhfahdfkdhfkdshfkksdhfkdf</InfoField>
         </Wrapper>
