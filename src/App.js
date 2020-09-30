@@ -1,24 +1,32 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Sidebar from './Sidebar';
+import styled from 'styled-components'
+import PanelRight from './PanelRight';
+
+const LeftDiv = styled.div`
+	float: left;
+	width: 20%;
+	justify-content: middle;
+	position: fixed;
+`
+
+const RightDiv = styled.div`
+	float: right;
+	width: 80%;
+	height: 90%;
+`
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LeftDiv>
+	  	<Sidebar></Sidebar>
+	  </LeftDiv>
+      <RightDiv>
+	  	<PanelRight></PanelRight>
+	  </RightDiv>
     </div>
   );
 }
