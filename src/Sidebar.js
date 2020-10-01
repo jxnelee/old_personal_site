@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     padding: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: middle;
+    justify-content: center;
     align-content: center;
     word-wrap: break-word;
 `
@@ -22,6 +22,7 @@ const NameField = styled.button`
     border:none;
     background-color:transparent;
     outline:none;
+    onclick: "window.location.href='#about'";
 `
 const InfoField = styled.p`
     font-size: 24px;
@@ -30,10 +31,11 @@ const InfoField = styled.p`
     line-height: 28px;
     text-align: center;
 `
+//flexbox
 export default function Sidebar() {
     return(
         <Wrapper>
-            <a href='#about'><NameField>jane lee</NameField></a>
+            <NameField>jane lee</NameField>
             <Dots src={dots}/>
             <InfoField>akjsdhfjkshdjfksaksjhfkdshfsdfksdfhfakjdhfahdfkdhfkdshfkksdhfkdf</InfoField>
         </Wrapper>

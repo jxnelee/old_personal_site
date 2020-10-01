@@ -15,11 +15,20 @@ const Lights = styled.img`
     height: 100%;
 `
 
-const Description = styled.p`
+const Intro = styled.p`
     font-size: 90px;
     text-align: left;
-    line-height: 112px;
+    line-height: 120px;
     weight: 700;
+    margin: 0px;
+    margin-top: 20px;
+`
+
+const Description = styled.p`
+    font-size: 50px;
+    text-align: left;
+    line-height: 59px;
+    weight: 400;
     margin: 0px;
 `
 
@@ -28,7 +37,8 @@ export default function About() {
         <div>
             <ContentDiv>
                 <Lights src={lights}></Lights>
-                <Description>Hello! I am a student at UC Berkeley.</Description>
+                <Intro>Hi, I'm Jane!</Intro>
+                <Description>I'm a student at <b>UC Berkeley</b>. Currently, I'm on a journey to discover how I can apply my passion for <b>computer science</b>.</Description>
             </ContentDiv>
         </div>
     );
