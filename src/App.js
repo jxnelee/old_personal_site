@@ -9,7 +9,8 @@ const LeftDiv = styled.div`
 	width: 23%;
 	justify-content: middle;
 	position: fixed;
-	margin-top: 80px;
+	margin-top: 0px;
+  padding-top: 0px;
 `
 
 const RightDiv = styled.div`
@@ -19,7 +20,7 @@ const RightDiv = styled.div`
 `
 
 const BlueDiv = styled.div`
-	background-color:blue;
+	background-color:#9edae6;
 `
 
 const YellowDiv = styled.div`

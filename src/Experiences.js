@@ -5,13 +5,14 @@ import codebase from './assets/codebase.png';
 import cpl from './assets/cpl.png';
 import chs from './assets/chs.png';
 import symantec from './assets/symantec.png';
+import table from './assets/tablescene.svg';
 
 const ContentDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: middle;
     padding: 140px;
-    padding-top: 100px;
+    padding-top: 70px;
     padding-bottom: 0px;
     margin-bottom: 0px;
 `
@@ -25,7 +26,7 @@ const ExperiencesLead = styled.p`
 `
 
 const GrowingDiv = styled.div`
-    background-color: #DEDCDC;
+    background-color: #d7f2f7;
     display: flex;
     flex-direction: row;
     height: 140px;
@@ -49,26 +50,37 @@ const NameAndDescription = styled.div`
 `
 
 const Experience = styled.p`
-    font-size: 40px;
+    font-size: 30px;
     text-align: left;
-    line-height: 60px;
+    line-height: 40px;
     weight: 700;
-    margin: 0px;
+    margin-bottom: 0px;
+    margin-top: 5px;
 `
 
 const Description = styled.p`
-    font-size: 20px;
+    font-size: 15px;
     text-align: left;
-    line-height: 30px;
+    line-height: 25px;
     weight: 300;
-    margin: 0px;
+    margin-top: 5px;
+`
+
+const TableDiv = styled.div`
+    justify-content: right;
+    align: right;
+    margin-right: 0px;
+    position: absolute;
+    top: 1400px;
+    right: 100px;
+    z-index: -100;
 `
 
 export default function Experiences() {
     return(
         <div>
             <ContentDiv>
-            <ExperiencesLead><b>Here are some experiences that have shaped my journey...</b></ExperiencesLead>
+                <ExperiencesLead><b>Here are some experiences that have shaped my journey...</b></ExperiencesLead>
                 <GrowingDiv>
                     <img src={cpl} style=
                         {{marginRight: '20px',
@@ -81,7 +93,7 @@ export default function Experiences() {
                         height: '100px'}}/>
                     <NameAndDescription>
                         <Experience>Research Intern</Experience>
-                        <Description>Stuff about CPL internship</Description>
+                        <Description>Developed SAT math curriculum for a tutoring chatbot with XMind software. Conducted data audits using Git and R programming. Filed public records requests to gather data from various county jails</Description>
                     </NameAndDescription>
                 </GrowingDiv>
                 <GrowingDiv>
@@ -144,6 +156,16 @@ export default function Experiences() {
                         <Description>Stuff about Symantec Internship</Description>
                     </NameAndDescription>
                 </GrowingDiv>
+                <TableDiv>
+                    <img src={table} style=
+                        {{marginRight: '20px',
+                        marginLeft: '25px',
+                        marginTop: '20px',
+                        marginBottom: '40px',
+                        border: 'none',
+                        width: '405px',
+                        height: '700px'}}/>
+                </TableDiv>
             </ContentDiv>
         </div>
     );

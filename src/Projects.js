@@ -27,17 +27,17 @@ const ProjectLead = styled.p`
 `
 
 const ProjectName = styled.p`
-    font-size: 50px;
+    font-size: 40px;
     text-align: left;
-    line-height: 80px;
+    line-height: 60px;
     weight: 700;
     margin: 0px;
 `
 
 const Description = styled.p`
-    font-size: 20px;
+    font-size: 15px;
     text-align: left;
-    line-height: 30px;
+    line-height: 25px;
     weight: 300;
     margin: 0px;
 `
@@ -59,7 +59,7 @@ const RightJProject = styled.div`
 `
 
 const ProjectButton = styled.div`
-    background-color: #f0f0f0;
+    background-color: #d7f2f7;
     border-radius: 15px;
     margin:20px;
     font-size: 40px;
@@ -83,7 +83,7 @@ const PanelDiv = styled.div`
 `
 
 const TypeButton = styled.button`
-    background-color: #DEDCDC;
+    background-color: #9edae6;
     border-radius: 15px;
     margin-left: 5px;
     margin-right: 10px;
@@ -121,7 +121,10 @@ export default function Projects() {
                             <TypeButton>javascript</TypeButton>
                         </PanelDiv>
                         <ProjectName>Milk & Cookies</ProjectName>
-                        <Description>Stuff about Milk & Cookies</Description>
+                        <Description>
+                            As avid bakers with dietary restrictions, my friends and I have always struggled to find recipes that meet all of our needs.
+                            We were inspired to build <b>Milk & Cookies</b>, a Google Chrome extension that makes the process of finding working replacements seamless.
+                        </Description>
                     </NameAndDescription>
                 </LeftJProject>
                 <RightJProject>
@@ -131,7 +134,10 @@ export default function Projects() {
                             <TypeButton>javascript</TypeButton>
                         </PanelDiv>
                         <ProjectName>Spare to Care</ProjectName>
-                        <Description>Stuff about Spare to Care</Description>
+                        <Description>
+                            Under the current circumstances of shelter in place, giving donations to organizations remains one of the most accessible ways for individuals to do their part in advancing social movements. 
+                            My friends and I decided to build <b>Spare to Care</b>, a Google Chrome extension that incentivizes and streamlines the donation process.
+                        </Description>
                     </NameAndDescription>
                     <ProjectButton>
                     <a href='https://devpost.com/software/spare-to-care' target='_blank'><img src={sparetocare} style=
@@ -165,7 +171,10 @@ export default function Projects() {
                             <TypeButton>p5.js</TypeButton>
                         </PanelDiv>
                         <ProjectName>GitHub Demo</ProjectName>
-                        <Description>Stuff about GitHub Demo</Description>
+                        <Description>
+                            As someone who is newer to using git and Github, remembering terminal commands and understanding version control can be difficult.
+                            To help myself and others visualize the process of staging, committing, and pushing files, I created a <b>git simulation</b> to teach beginners how to use git.
+                        </Description>
                     </NameAndDescription>
                 </LeftJProject>
                 <RightJProject>

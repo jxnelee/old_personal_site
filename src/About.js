@@ -22,10 +22,10 @@ const Lights = styled.img`
 const Intro = styled.p`
     font-size: 90px;
     text-align: left;
-    line-height: 130px;
+    line-height: 210px;
     weight: 700;
     margin: 0px;
-    margin-top: 20px;
+    margin-top: 40px;
 `
 
 const Description = styled.p`
@@ -42,6 +42,7 @@ const Label = styled.p`
     line-height: 30px;
     weight: 400;
     margin: 0px;
+    color: #9edae6 !Important;
 `
 
 const PanelDiv = styled.div`
@@ -77,7 +78,7 @@ export default function About() {
     return(
         <div>
             <ContentDiv>
-                <Lights src={lights}></Lights>
+                
                 <Intro>Hi, I'm Jane!</Intro>
                 <Description>I'm a student at <b>UC Berkeley</b>. Currently, I'm on a journey to discover how I can apply my passion for <b>computer science</b>.</Description>
                 <AboutSubLead><b>I'm also passionate about...</b></AboutSubLead>
@@ -93,7 +94,7 @@ export default function About() {
                             height: '170px'
                             }}
                         />
-                        <Label>Social Good</Label>
+                        <Label><b>social good</b></Label>
                     </IconAndDescription>
                     <IconAndDescription>
                         <img src={education} style=
@@ -105,7 +106,7 @@ export default function About() {
                             width: '177px',
                             height: '163px'}}
                         />
-                        <Label>Education</Label>
+                        <Label><b>education</b></Label>
                     </IconAndDescription>
                 </PanelDiv>
             </ContentDiv>

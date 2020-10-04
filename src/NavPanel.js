@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-    background-color: #DEDCDC;
+    background-color: #9edae6;
     border-radius: 15px;
     margin-left: 80px;
     margin-right: 50px;
@@ -26,10 +26,10 @@ const PanelDiv = styled.div`
 export default function NavPanel() {
     return(
         <PanelDiv> 
-            <a href='#about'><Button>about</Button></a>
-            <a href='#experiences'><Button>experiences</Button></a>
-            <a href='#projects'><Button>projects</Button></a>
-            <a href='#contact'><Button>contact</Button></a>
+            <a href='#about'><Button>About</Button></a>
+            <a href='#experiences'><Button>Experiences</Button></a>
+            <a href='#projects'><Button>Projects</Button></a>
+            <a href='#contact'><Button>Contact</Button></a>
         </PanelDiv>
     );
 }
