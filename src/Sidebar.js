@@ -3,12 +3,14 @@ import styled from 'styled-components'
 import dots from './assets/dots.png';
 
 const Wrapper = styled.div`
-    padding: 50px;
+    padding: 10px;
+    margin: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     word-wrap: break-word;
+    vertical-align: center;
 `
 const Dots = styled.img`
     width: 100%;

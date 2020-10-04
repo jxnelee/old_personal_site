@@ -51,7 +51,7 @@ export default function Contacts() {
     return(
         <div>
             <ContentDiv>
-                <Title><b>Please reach out! I'd love to chat.</b></Title>
+                <Title><b>Don't hesitate to reach out! I'd love to chat.</b></Title>
                 <Title>email</Title>
                 <Description>jane-lee@berkeley.edu</Description>
                 <div align="left">

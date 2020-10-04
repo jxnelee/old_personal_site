@@ -6,9 +6,10 @@ import PanelRight from './PanelRight';
 
 const LeftDiv = styled.div`
 	float: left;
-	width: 20%;
+	width: 23%;
 	justify-content: middle;
 	position: fixed;
+	margin-top: 80px;
 `
 
 const RightDiv = styled.div`
@@ -17,15 +18,23 @@ const RightDiv = styled.div`
 	height: 90%;
 `
 
+const BlueDiv = styled.div`
+	background-color:blue;
+`
+
+const YellowDiv = styled.div`
+	background-color:yellow;
+`
+
 function App() {
   return (
     <div className="App">
       <LeftDiv>
-	  	<Sidebar></Sidebar>
-	  </LeftDiv>
+        <Sidebar></Sidebar>
+      </LeftDiv>
       <RightDiv>
-	  	<PanelRight></PanelRight>
-	  </RightDiv>
+        <PanelRight></PanelRight>
+      </RightDiv>
     </div>
   );
 }

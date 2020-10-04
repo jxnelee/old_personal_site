@@ -2,16 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import sparetocare from './assets/sparetocare.png';
 import milkandcookies from './assets/milkandcookies.png';
+import githublogo from './assets/githublogo.png';
+import cofed from './assets/cofed.png';
 
 const ContentDiv = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: middle;
     align: center;
-    padding-top: 100px;
+    padding-top: 60px;
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 50px;
+    border-top: 9px;
+`
+
+const ProjectLead = styled.p`
+    font-size: 50px;
+    text-align: left;
+    line-height: 80px;
+    weight: 700;
+    margin-bottom: 30px;
+    margin-left: 40px;
 `
 
 const ProjectName = styled.p`
@@ -47,7 +59,7 @@ const RightJProject = styled.div`
 `
 
 const ProjectButton = styled.div`
-    background-color: #DEDCDC;
+    background-color: #f0f0f0;
     border-radius: 15px;
     margin:20px;
     font-size: 40px;
@@ -89,6 +101,7 @@ export default function Projects() {
     return(
         <div>
             <ContentDiv>
+                <ProjectLead><b>I've learned a lot by doing these projects...</b></ProjectLead>
                 <LeftJProject>
                 <ProjectButton>
                     <a href='https://devpost.com/software/milk-cookies-a5rzbe' target='_blank'><img src={milkandcookies} style=
@@ -135,7 +148,18 @@ export default function Projects() {
                     </ProjectButton>
                 </RightJProject>
                 <LeftJProject>
-                    <ProjectButton>Project 3</ProjectButton>
+                    <ProjectButton>
+                    <a href='https://github.com/jxnelee/p5gitdemo' target='_blank'><img src={githublogo} style=
+                        {{borderRadius: '15px',
+                        fontSize: '40px',
+                        width:'250px',
+                        height:'100px',
+                        color: 'white',
+                        border: 'none', 
+                        padding: '45px 0px',
+                        outline:'none'}}
+                    /></a>
+                    </ProjectButton>
                     <NameAndDescription>
                         <PanelDiv>
                             <TypeButton>p5.js</TypeButton>
@@ -152,7 +176,18 @@ export default function Projects() {
                         <ProjectName>CoFED Web Portal</ProjectName>
                         <Description>Stuff about CoFED Web Portal</Description>
                     </NameAndDescription>
-                    <ProjectButton>Project 4</ProjectButton>
+                    <ProjectButton>
+                    <a href='https://www.cofed.coop/' target='_blank'><img src={cofed} style=
+                        {{borderRadius: '15px',
+                        fontSize: '40px',
+                        width:'260px',
+                        height:'100px',
+                        color: 'white',
+                        border: 'none', 
+                        padding: '45px 0px',
+                        outline:'none'}}
+                    /></a>
+                    </ProjectButton>
                 </RightJProject>
             </ContentDiv>
         </div>

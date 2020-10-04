@@ -11,7 +11,17 @@ const ContentDiv = styled.div`
     flex-direction: column;
     justify-content: middle;
     padding: 140px;
-    padding-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+`
+
+const ExperiencesLead = styled.p`
+    font-size: 50px;
+    text-align: left;
+    line-height: 80px;
+    weight: 700;
+    margin-bottom: 70px;
 `
 
 const GrowingDiv = styled.div`
@@ -58,6 +68,7 @@ export default function Experiences() {
     return(
         <div>
             <ContentDiv>
+            <ExperiencesLead><b>Here are some experiences that have shaped my journey...</b></ExperiencesLead>
                 <GrowingDiv>
                     <img src={cpl} style=
                         {{marginRight: '20px',
