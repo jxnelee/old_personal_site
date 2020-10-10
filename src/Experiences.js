@@ -6,6 +6,7 @@ import cpl from './assets/cpl.png';
 import chs from './assets/chs.png';
 import symantec from './assets/symantec.png';
 import table from './assets/tablescene.svg';
+import axios from 'axios';
 
 const ContentDiv = styled.div`
     display: flex;
@@ -77,85 +78,48 @@ const TableDiv = styled.div`
 `
 
 export default function Experiences() {
+
+    const [experiences, setExperiences] = React.useState(null);
+    async function fetData() {
+        const res = await axios.get(
+            'https://api.airtable.com/v0/appqZDvLfhRgrp4L5/Experiences',
+            {
+                headers: {
+                    authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
+                },
+            }
+        );
+        console.log(res.data);
+        setExperiences(res.data.records);
+    }
+    React.useEffect(() => {
+        fetData();
+    }, []);
+    if (!experiences) {
+        return <div>Loading...</div>;
+    }
+
     return(
         <div>
             <ContentDiv>
                 <ExperiencesLead><b>Here are some experiences that have shaped my journey...</b></ExperiencesLead>
-                <GrowingDiv>
-                    <img src={cpl} style=
+                {experiences.map((record) => (
+                    <GrowingDiv key={record.id}>
+                        <img src={record.fields.Attachments[0].url} style =
                         {{marginRight: '20px',
-                        marginLeft: '25px',
-                        marginTop: '20px',
-                        marginBottom: '40px',
-                        border: 'none',
-                        display: 'inline-block',
-                        width: '110px',
-                        height: '100px'}}/>
-                    <NameAndDescription>
-                        <Experience>Research Intern</Experience>
-                        <Description>Developed SAT math curriculum for a tutoring chatbot with XMind software. Conducted data audits using Git and R programming. Filed public records requests to gather data from various county jails</Description>
-                    </NameAndDescription>
-                </GrowingDiv>
-                <GrowingDiv>
-                    <img src={codebase} style=
-                        {{marginRight: '20px',
-                        marginLeft: '25px',
-                        marginTop: '20px',
-                        marginBottom: '40px',
-                        border: 'none',
-                        display: 'inline-block',
-                        width: '110px',
-                        height: '100px'}}/>
-                    <NameAndDescription>
-                        <Experience>Developer</Experience>
-                        <Description>Stuff about Codebase</Description>
-                    </NameAndDescription>
-                </GrowingDiv>
-                <GrowingDiv>
-                    <img src={cosmos} style=
-                        {{marginRight: '20px',
-                        marginLeft: '25px',
-                        marginTop: '20px',
-                        marginBottom: '40px',
-                        border: 'none',
-                        display: 'inline-block',
-                        width: '110px',
-                        height: '100px'}}/>
-                    <NameAndDescription>
-                        <Experience>Student</Experience>
-                        <Description>Stuff about COSMOS</Description>
-                    </NameAndDescription>
-                </GrowingDiv>
-                <GrowingDiv>
-                    <img src={chs} style=
-                        {{marginRight: '20px',
-                        marginLeft: '25px',
-                        marginTop: '20px',
-                        marginBottom: '40px',
-                        border: 'none',
-                        display: 'inline-block',
-                        width: '110px',
-                        height: '100px'}}/>
-                    <NameAndDescription>
-                        <Experience>ASB Vice President</Experience>
-                        <Description>Stuff about ASB</Description>
-                    </NameAndDescription>
-                </GrowingDiv>
-                <GrowingDiv>
-                    <img src={symantec} style=
-                        {{marginRight: '20px',
-                        marginLeft: '25px',
-                        marginTop: '20px',
-                        marginBottom: '40px',
-                        border: 'none',
-                        display: 'inline-block',
-                        width: '110px',
-                        height: '100px'}}/>
-                    <NameAndDescription>
-                        <Experience>Intern</Experience>
-                        <Description>Stuff about Symantec Internship</Description>
-                    </NameAndDescription>
-                </GrowingDiv>
+                            marginLeft: '25px',
+                            marginTop: '20px',
+                            marginBottom: '40px',
+                            border: 'none',
+                            display: 'inline-block',
+                            width: '110px',
+                            height: '100px'}}/>
+                        <NameAndDescription>
+                            <Experience>{record.fields.Name}</Experience>
+                            <Description>{record.fields.Notes}</Description>
+                        </NameAndDescription>
+                    </GrowingDiv>
+                ))}
                 <TableDiv>
                     <img src={table} style=
                         {{marginRight: '20px',

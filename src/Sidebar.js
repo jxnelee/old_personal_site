@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     align-content: center;
     word-wrap: break-word;
     vertical-align: center;
+    margin:auto;
 `
 const Dots = styled.img`
     width: 100%;

@@ -4,6 +4,7 @@ import sparetocare from './assets/sparetocare.png';
 import milkandcookies from './assets/milkandcookies.png';
 import githublogo from './assets/githublogo.png';
 import cofed from './assets/cofed.png';
+import axios from 'axios';
 
 const ContentDiv = styled.div`
     display: flex;
@@ -98,106 +99,87 @@ const TypeButton = styled.button`
 `
 
 export default function Projects() {
+    const [projects, setProjects] = React.useState(null);
+    async function fetData() {
+        const res = await axios.get(
+            'https://api.airtable.com/v0/appqZDvLfhRgrp4L5/Projects',
+            {
+                headers: {
+                    authorization: `Bearer ${process.env.REACT_APP_API_KEY}`
+                },
+            }
+        );
+        console.log(res.data);
+        setProjects(res.data.records);
+    }
+    React.useEffect(() => {
+        fetData();
+    }, []);
+    if (!projects) {
+        return <div>Loading...</div>;
+    }
+
     return(
         <div>
             <ContentDiv>
                 <ProjectLead><b>I've learned a lot by doing these projects...</b></ProjectLead>
-                <LeftJProject>
-                <ProjectButton>
-                    <a href='https://devpost.com/software/milk-cookies-a5rzbe' target='_blank'><img src={milkandcookies} style=
-                        {{borderRadius: '15px',
-                        fontSize: '40px',
-                        width:'260px',
-                        height:'130px',
-                        color: 'white',
-                        border: 'none', 
-                        padding: '25px 0px',
-                        outline:'none'}}
-                    /></a>
-                   </ProjectButton>
-                    <NameAndDescription>
-                        <PanelDiv>
-                            <TypeButton>chrome API</TypeButton>
-                            <TypeButton>javascript</TypeButton>
-                        </PanelDiv>
-                        <ProjectName>Milk & Cookies</ProjectName>
-                        <Description>
-                            As avid bakers with dietary restrictions, my friends and I have always struggled to find recipes that meet all of our needs.
-                            We were inspired to build <b>Milk & Cookies</b>, a Google Chrome extension that makes the process of finding working replacements seamless.
-                        </Description>
-                    </NameAndDescription>
-                </LeftJProject>
-                <RightJProject>
-                    <NameAndDescription>
-                        <PanelDiv>
-                            <TypeButton>chrome API</TypeButton>
-                            <TypeButton>javascript</TypeButton>
-                        </PanelDiv>
-                        <ProjectName>Spare to Care</ProjectName>
-                        <Description>
-                            Under the current circumstances of shelter in place, giving donations to organizations remains one of the most accessible ways for individuals to do their part in advancing social movements. 
-                            My friends and I decided to build <b>Spare to Care</b>, a Google Chrome extension that incentivizes and streamlines the donation process.
-                        </Description>
-                    </NameAndDescription>
-                    <ProjectButton>
-                    <a href='https://devpost.com/software/spare-to-care' target='_blank'><img src={sparetocare} style=
-                        {{borderRadius: '15px',
-                        margin:'10px',
-                        fontSize: '40px',
-                        width:'210px',
-                        height:'150px',
-                        color: 'white',
-                        border: 'none', 
-                        padding: '10px 25px',
-                        outline:'none'}}
-                    /></a>
-                    </ProjectButton>
-                </RightJProject>
-                <LeftJProject>
-                    <ProjectButton>
-                    <a href='https://github.com/jxnelee/p5gitdemo' target='_blank'><img src={githublogo} style=
-                        {{borderRadius: '15px',
-                        fontSize: '40px',
-                        width:'250px',
-                        height:'100px',
-                        color: 'white',
-                        border: 'none', 
-                        padding: '45px 0px',
-                        outline:'none'}}
-                    /></a>
-                    </ProjectButton>
-                    <NameAndDescription>
-                        <PanelDiv>
-                            <TypeButton>p5.js</TypeButton>
-                        </PanelDiv>
-                        <ProjectName>GitHub Demo</ProjectName>
-                        <Description>
-                            As someone who is newer to using git and Github, remembering terminal commands and understanding version control can be difficult.
-                            To help myself and others visualize the process of staging, committing, and pushing files, I created a <b>git simulation</b> to teach beginners how to use git.
-                        </Description>
-                    </NameAndDescription>
-                </LeftJProject>
-                <RightJProject>
-                    <NameAndDescription>
-                        <PanelDiv>
-                            <TypeButton>React.js</TypeButton>
-                        </PanelDiv>
-                        <ProjectName>CoFED Web Portal</ProjectName>
-                        <Description>Stuff about CoFED Web Portal</Description>
-                    </NameAndDescription>
-                    <ProjectButton>
-                    <a href='https://www.cofed.coop/' target='_blank'><img src={cofed} style=
-                        {{borderRadius: '15px',
-                        fontSize: '40px',
-                        width:'260px',
-                        height:'100px',
-                        color: 'white',
-                        border: 'none', 
-                        padding: '45px 0px',
-                        outline:'none'}}
-                    /></a>
-                    </ProjectButton>
-                </RightJProject>
+
+                {projects.map((record, i) => {
+                    if (i % 2 === 0) {
+                        return (
+                            <LeftJProject key={record.id}>
+                                <ProjectButton>
+                                    <a href={record.fields.Link} target='_blank'><img src={record.fields.Attachments[0].url} style=
+                                        {{borderRadius: '15px',
+                                        fontSize: '40px',
+                                        width:'260px',
+                                        height:'130px',
+                                        color: 'white',
+                                        border: 'none', 
+                                        padding: '25px 0px',
+                                        outline:'none'}}
+                                    /></a>
+                                </ProjectButton>
+                                <NameAndDescription>
+                                    <PanelDiv>
+                                    {record.fields.Languages.map((language) => (
+                                        <TypeButton>{language}</TypeButton>
+                                    ))}
+                                    </PanelDiv>
+                                    <ProjectName>{record.fields.Name}</ProjectName>
+                                    <Description>{record.fields.Notes}</Description>
+                                </NameAndDescription>
+                            </LeftJProject>
+                        )
+                    } else {
+                        return (
+                            <RightJProject key={record.id}>
+                                <NameAndDescription>
+                                    <PanelDiv>
+                                    {record.fields.Languages.map((language) => (
+                                        <TypeButton>{language}</TypeButton>
+                                    ))}
+                                    </PanelDiv>
+                                    <ProjectName>{record.fields.Name}</ProjectName>
+                                    <Description>{record.fields.Notes}</Description>
+                                </NameAndDescription>
+                                <ProjectButton>
+                                    <a href={record.fields.Link} target='_blank'><img src={record.fields.Attachments[0].url} style=
+                                        {{borderRadius: '15px',
+                                        fontSize: '40px',
+                                        width:'260px',
+                                        height:'130px',
+                                        color: 'white',
+                                        border: 'none', 
+                                        padding: '25px 0px',
+                                        outline:'none'}}
+                                    /></a>
+                                </ProjectButton>
+                            </RightJProject>
+                        )
+                    }
+                })}
+                
             </ContentDiv>
         </div>
     );
